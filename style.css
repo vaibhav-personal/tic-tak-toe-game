@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1c92d2, #f2fcfe);
+    color: #222;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 6vmin;
+    margin: 2vmin 0;
+    color: #ffffff;
+    text-shadow: 2px 2px 6px #000000aa;
+    letter-spacing: 0.3vmin;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2vmin;
+}
+
+.game {
+    height: 60vmin;
+    width: 60vmin;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5vmin;
+}
+
+.box {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 1rem;
+    border: none;
+    background: #ffeaa7;
+    font-size: 12vmin;
+    color: #d63031;
+    font-weight: bold;
+    box-shadow: inset 0 0 0.5rem rgba(0, 0, 0, 0.1); /* stays static */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    user-select: none;
+    outline: none;
+    padding: 0;
+}
+
+.box:hover {
+    background-color: #f9e79f;
+    cursor: pointer;
+}
+
+.box:focus,
+.box:active {
+    outline: none;
+    border: none;
+    box-shadow: inset 0 0 0.5rem rgba(0, 0, 0, 0.1); /* prevent shift on focus */
+}
+
+.x {
+    color: #d90429; /* Red for X */
+}
+
+.o {
+    color: #023e8a; /* Blue for O */
+}
+
+.w {
+    color: #28e144;
+}
+
+.scale-in {
+    animation: scaleIn 0.5s ease-in-out;
+}
+@keyframes scaleIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.reset,
+.newgame {
+    padding: 1.5vmin 3vmin;
+    font-size: 4vmin;
+    margin-top: 3vmin;
+    border-radius: 1rem;
+    border: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.reset {
+    background-color: #00b894;
+    color: #fff;
+}
+
+.reset:hover {
+    background-color: #019874;
+}
+
+.newgame {
+    background-color: #fd79a8;
+    color: #fff;
+}
+
+.newgame:hover {
+    background-color: #e84393;
+}
+
+.winnermsg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #ffeaa7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 8vmin;
+    z-index: 10;
+    gap: 2vmin;
+    text-shadow: 2px 2px 5px #000;
+}
+
+.message {
+    font-weight: bold;
+    animation: scaleIn 0.6s ease-in-out;
+}
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.hide {
+    display: none;
+}
